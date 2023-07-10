@@ -123,6 +123,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &32338154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 32338157}
+  - component: {fileID: 32338156}
+  - component: {fileID: 32338155}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &32338155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32338154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20b59357e9b2f746aba6ba30083b27e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameObjectSlider: {fileID: 2139775103}
+  _velocity: 0.05
+--- !u!114 &32338156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32338154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b7d066cf733f04284fe956f2a1e7bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deltaHelth: 0.1
+  IsHelthChange: 0
+--- !u!4 &32338157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32338154}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 459, y: 287, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &161381771
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,8 +867,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2139775106}
-        m_TargetAssemblyTypeName: ChangerHelthBar, Assembly-CSharp
+      - m_Target: {fileID: 32338156}
+        m_TargetAssemblyTypeName: Helth, Assembly-CSharp
         m_MethodName: DecreaseHelth
         m_Mode: 1
         m_Arguments:
@@ -1168,8 +1229,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2139775106}
-        m_TargetAssemblyTypeName: ChangerHelthBar, Assembly-CSharp
+      - m_Target: {fileID: 32338156}
+        m_TargetAssemblyTypeName: Helth, Assembly-CSharp
         m_MethodName: IncreaseHelth
         m_Mode: 1
         m_Arguments:
@@ -1228,7 +1289,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2139775104}
   - component: {fileID: 2139775105}
-  - component: {fileID: 2139775106}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1310,18 +1370,3 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2139775106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2139775103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f20b59357e9b2f746aba6ba30083b27e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameObject: {fileID: 2139775103}
-  _deltaHelth: 0.1
-  _velocity: 0.05
