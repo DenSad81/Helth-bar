@@ -7,7 +7,9 @@ using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class HelthShower : MonoBehaviour
+[RequireComponent(typeof(Slider))]
+[RequireComponent(typeof(Helth))]
+public class HelthShowerSlider : MonoBehaviour
 {
     [SerializeField] private GameObject _gameObjectSlider;
     [SerializeField] private float _velocity = 0.05f;
@@ -16,20 +18,30 @@ public class HelthShower : MonoBehaviour
     private Helth _helth;
     private bool IsCorutineWork = false;
 
+    private void OnEnable()
+    {
+        _helth = GetComponent<Helth>();
+        _helth.AddMetodInEvent(StartCorutineChangeSlider);
+    }
+
+    private void OnDisable()
+    {
+        _helth.RemoveMetodInEvent(StartCorutineChangeSlider);
+    }
+
     private void Start()
     {
         _slider = _gameObjectSlider.GetComponent<Slider>();
-        _helth = GetComponent<Helth>();
         _slider.value = _helth.ActualHelth;
     }
 
-    private void Update()
+    private void StartCorutineChangeSlider()
     {
-        if (_helth.IsHelthChange & (IsCorutineWork == false))
-            StartCoroutine(CorutineChangeSliderIsActiv());
+        if (IsCorutineWork == false)
+            StartCoroutine(CorutineChangeSlider());
     }
 
-    private IEnumerator CorutineChangeSliderIsActiv()
+    private IEnumerator CorutineChangeSlider()
     {
         IsCorutineWork = true;
 
@@ -39,7 +51,6 @@ public class HelthShower : MonoBehaviour
             yield return null;
         }
 
-        _helth.IsHelthChange = false;
         IsCorutineWork = false;
     }
 }
